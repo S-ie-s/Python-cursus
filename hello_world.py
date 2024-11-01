@@ -1,4 +1,5 @@
 from datetime import date
+from functions import main
 
 # this is an comment 
 
@@ -13,5 +14,7 @@ print(message)
 
 #print(message)
 print( today)
+
+main()
 
 
