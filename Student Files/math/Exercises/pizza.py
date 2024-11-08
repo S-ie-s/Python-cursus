@@ -2,6 +2,7 @@ import math
 
 # Ask how many people wat to eat pizza. How many slices per person 
 # and how many slices you can get out of a pizza
+#
 def user_input():
     people = int(input("How many people? "))
     slices = int(input("How many slices eats a person? "))
