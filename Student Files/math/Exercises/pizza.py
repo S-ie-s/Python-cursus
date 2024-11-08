@@ -8,6 +8,7 @@ def user_input():
 
 def calc_pizza(user_pizza_numbers):
     people, slices, slice_per_pizza = user_pizza_numbers
+    
     total_pizza = (people * slices) / slice_per_pizza
     whole_pizza = math.ceil(total_pizza)
     rest_slices = (people * slices) % slice_per_pizza
