@@ -1,14 +1,18 @@
 import math
 
+# Ask how many people wat to eat pizza. How many slices per person 
+# and how many slices you can get out of a pizza
 def user_input():
     people = int(input("How many people? "))
     slices = int(input("How many slices eats a person? "))
     slice_per_pizza = int(input("How many slices per pizza? "))
     return people, slices, slice_per_pizza
 
+# calculating how many pizza's are needed.
+# calculating how many slices will be over
 def calc_pizza(user_pizza_numbers):
     people, slices, slice_per_pizza = user_pizza_numbers
-    
+
     total_pizza = (people * slices) / slice_per_pizza
     whole_pizza = math.ceil(total_pizza)
     rest_slices = (people * slices) % slice_per_pizza
