@@ -1,10 +1,23 @@
 def all_true(iterable):
     # write function
-    pass
+    
+    
+    
+    for item in iterable:
+        if not item:
+            print(item)
+            return False
+        
+    # return True
+
 
 def any_true(iterable):
     # write function
-    pass
+    for item in iterable:
+        if item == True:
+            return True
+        
+    return False
 
 def main():
     a = all_true([1, 0, 1, 1, 1])
