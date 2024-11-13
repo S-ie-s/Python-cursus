@@ -13,6 +13,15 @@ def check(word, guesses):
     last_guess = guesses[-1]
     matches = 0 # Number of occurrences of last_guess in word
 
+    for char in last_guess: 
+        for char in word:
+            matches +=1
+            status +=char
+        else:
+            status+= '*'
+
+    return status
+
     # Loop through word checking if each letter is in guesses
     #  If it is, append the letter to status
     #  If it is not, append an asterisk (*) to status
@@ -37,6 +46,20 @@ def main():
     while not guessed:
         guess = input('Guess a letter or a {}-letter word: '.format(n))
         guess = guess.upper()
+
+        if len(guess) == n:
+            if guess == word:
+                guesses.append(guess)
+                guessed = True
+                break
+            guesses.append(guess)
+            print('wrong word but {} length word is right.'.format(n))
+
+        guesses.append(guess)
+        status = check(word, guesses)
+        print(status)
+
+
         # Write an if condition to complete this loop.
         # You must set guessed to True if the word is guessed.
         # Things to be looking for:
