@@ -1,5 +1,5 @@
 def is_state(state):
-    with open('../data/states.txt') as f:
+    with open('Student Files/flow-control/data/states.txt') as f:
         states = f.read().splitlines()
 
     state_abbreviations = []
@@ -16,12 +16,17 @@ def main():
     bad_state = False
     for state in states:
         state = state.upper()
+            
+
+     
         if not is_state(state):
             print(f'{state} is not a state.')
             bad_state = True
             break
+    else:
+            
 
-    if not bad_state:
+    # not bad_state:
         print(f'You named {len(states)} states.')
 
 main()
