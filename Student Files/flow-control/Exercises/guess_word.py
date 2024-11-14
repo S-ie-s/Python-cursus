@@ -1,9 +1,13 @@
 import random
 
 def get_word():
+    with open('Student Files/flow-control/data/words.txt') as f:
+        words = f.read().splitlines()
+
+
     """Returns random word."""
-    words = ['Charlie', 'Woodstock', 'Snoopy', 'Lucy', 'Linus',
-             'Schroeder', 'Patty', 'Sally', 'Marcie']
+    # words = ['Charlie', 'Woodstock', 'Snoopy', 'Lucy', 'Linus',
+    #          'Schroeder', 'Patty', 'Sally', 'Marcie']
     return random.choice(words).upper()
 
 def check(word, guesses):
