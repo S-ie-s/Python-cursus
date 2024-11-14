@@ -13,12 +13,33 @@ def check(word, guesses):
     last_guess = guesses[-1]
     matches = 0 # Number of occurrences of last_guess in word
 
-    for char in last_guess: 
-        for char in word:
-            matches +=1
-            status +=char
+# for every letter in the word and ALL guessed words: the status will be updated
+# with the letter. When this condition == False (letter not in word and all guessed words),
+# status will be updated with * character. When letter equals the last guess: match gets +1
+# and var guessed_letter gets char from letter.
+    for letter in word: 
+        if letter in guesses:
+            if letter == last_guess:
+                guessed_letter = letter
+                matches +=1
+
+            status +=letter
+            # print('You have matched {} letter(s) from the {}-letter word.'.format(matches, len(word)))
         else:
             status+= '*'
+
+# for every letter matched:
+    if matches == 1:
+        print('The letter {} matched one time.'.format(guessed_letter))
+
+    if matches > 1:
+        print('The letter {} matched {} times.'.format(guessed_letter, matches))
+    
+    if not matches:
+        print('Sorry, the word has no {}s.'.format(guesses[-1]))
+
+
+        
 
     return status
 
@@ -34,7 +55,7 @@ def check(word, guesses):
     #   'The word has one "A".'
     #   'Sorry. The word has no "A"s.'
 
-    return status
+    
 
 def main():
     word = get_word() # The random word
@@ -47,6 +68,9 @@ def main():
         guess = input('Guess a letter or a {}-letter word: '.format(n))
         guess = guess.upper()
 
+# when the length of quess equals the length of the word, the quess will be added 
+# to the guesses list. When the guessed length and char's matches the word: guessed 
+# is true and while loop ends. Word was guessed right!
         if len(guess) == n:
             if guess == word:
                 guesses.append(guess)
@@ -57,7 +81,11 @@ def main():
 
         guesses.append(guess)
         status = check(word, guesses)
-        print(status)
+
+        if status == word:
+            guessed = True
+        
+        print(status,'\n')
 
 
         # Write an if condition to complete this loop.
