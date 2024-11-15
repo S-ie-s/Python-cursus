@@ -12,7 +12,15 @@ def main():
     print("computer: ", random_rps)
     print("user: ", user_rps)
     
+    # 0 > 1 
+    # onderstaande code nog niet klaar
+    if user_choice-1 == 0:
+        if random_rps == 0: 
+            print("Nobody wins")
+        else:
+            print("User wins")
     
+
     
 
 main()
